@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <title>Login System</title>
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <style>
+        .parent{
+            display:flex;
+            justify-content: center;
+            background: blue;
+            padding: 0;
+            margin: 0px;
+        }
+        .child{
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="child">
+        {% for category, message in get_flashed_messages(with_categories=true) %}
+        {% if category == 'login' %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% elif category == 'error' %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endif %}
+    {% endfor %}
+    
+        <form action="{{ url_for('login') }}" method="POST">
+            <label for="email">Email</label><br>
+            <input type="email" name="email"><br>
+            <label for="fname">password</label><br>
+            <input type="text" name="password"><br>
+            <input type="submit" vale="Register">
+        </form>
+    </div>
+</div>
+</body>

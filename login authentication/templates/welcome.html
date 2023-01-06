@@ -1,0 +1,10 @@
+<html>
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+    {% if category == 'active' %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endif %}
+{% endfor %}
+    <h2>Welcome to homepage</h2>
+    <a href="{{url_for('register') }}" >Register</a>
+    <a href="{{url_for('login') }}" >Login</a>
+</html>
